@@ -1,0 +1,13 @@
+public interface PayD {
+    long getCreditCardNumber();
+    String getCustomerName();
+    String getCardExpMonthDate();
+    short getCVVNumber();
+    double getTotalAmount();
+
+    void setCreditCardNumber(long creditCardNumber);
+    void setCustomerName(String customerName);
+    void setCardExpMonthDate(String cardExpMonthDate);
+    void setCVVNumber(short cVVNumber);
+    void setTotalAmount(double totalAmount);
+}
