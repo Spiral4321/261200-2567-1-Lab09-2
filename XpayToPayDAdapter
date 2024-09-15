@@ -1,0 +1,59 @@
+public class XpayToPayDAdapter implements PayD {
+    private final Xpay xpay;
+
+    public XpayToPayDAdapter(Xpay xpay) {
+        this.xpay = xpay;
+    }
+
+    @Override
+    public long getCreditCardNumber() {
+        return Long.parseLong(xpay.getCreditCardNo());
+    }
+
+    @Override
+    public String getCustomerName() {
+        return xpay.getCustomerName();
+    }
+
+    @Override
+    public String getCardExpMonthDate() {
+        return xpay.getCardExpMonth() + "/" + xpay.getCardExpYear();
+    }
+
+    @Override
+    public short getCVVNumber() {
+        return xpay.getCardCVVNo();
+    }
+
+    @Override
+    public double getTotalAmount() {
+        return xpay.getAmount();
+    }
+
+    @Override
+    public void setCreditCardNumber(long creditCardNumber) {
+        xpay.setCreditCardNo(String.valueOf(creditCardNumber));
+    }
+
+    @Override
+    public void setCustomerName(String customerName) {
+        xpay.setCustomerName(customerName);
+    }
+
+    @Override
+    public void setCardExpMonthDate(String cardExpMonthDate) {
+        String[] parts = cardExpMonthDate.split("/");
+        xpay.setCardExpMonth(parts[0]);
+        xpay.setCardExpYear(parts[1]);
+    }
+
+    @Override
+    public void setCVVNumber(short cVVNumber) {
+        xpay.setCardCVVNo(cVVNumber);
+    }
+
+    @Override
+    public void setTotalAmount(double totalAmount) {
+        xpay.setAmount(totalAmount);
+    }
+}
